@@ -35,3 +35,6 @@ jobs:
       with:
         name: Package
         path: staging
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag sundareswarcv/my-image-name:$(date +%s)
