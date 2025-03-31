@@ -29,12 +29,6 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Upload jar
-      run: mkdir staging && cp target/sundareswar-*.jar staging
-    - uses: actions/upload-artifact@v4
-      with:
-        name: Package
-        path: staging
     - uses: actions/checkout@v4
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag sundareswarcv/my-image-name:$(date +%s)
