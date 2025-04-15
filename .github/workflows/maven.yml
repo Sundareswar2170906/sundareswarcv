@@ -38,9 +38,10 @@ jobs:
         aws-region: ${{ env.AWS_REGION }}
 
     - name: Login to Amazon ECR
-      mask-password:  "true"
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
+      with :
+        mask-password: 'true'
 
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
